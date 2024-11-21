@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace SensiveProject.BusinessLayer.Concrete
 {
-	public class ArticleManager : IArticleService
-	{
-		private readonly IArticleDal _articleDal;
+    public class ArticleManager : IArticleService
+    {
+        private readonly IArticleDal _articleDal;
 
-		public ArticleManager(IArticleDal articleDal)
-		{
-			_articleDal = articleDal;
-		}
+        public ArticleManager(IArticleDal articleDal)
+        {
+            _articleDal = articleDal;
+        }
 
         public List<Article> TArticleListWithCategory()
         {
@@ -29,35 +29,40 @@ namespace SensiveProject.BusinessLayer.Concrete
         }
 
         public void TDelete(int id)
-		{
-			_articleDal.Delete(id);
-		}
+        {
+            _articleDal.Delete(id);
+        }
 
-		public List<Article> TGetAll()
-		{
-			return _articleDal.GetAll();
-		}
+        public List<Article> TGetAll()
+        {
+            return _articleDal.GetAll();
+        }
 
-		public Article TGetById(int id)
-		{
-			return _articleDal.GetById(id);
-		}
+        public Article TGetById(int id)
+        {
+            return _articleDal.GetById(id);
+        }
+        public Article TGetLastArticle()
+        {
+            return _articleDal.GetLastArticle();
+        }
 
-		public void TInsert(Article entity)
-		{
-			_articleDal.Insert(entity);
-		}
 
-		public void TUpdate(Article entity)
-		{
-			if (entity.Description != "" && entity.Title.Length >= 5 && entity.Title.Length <= 100)
-			{
-				_articleDal.Update(entity);
-			}
-			else
-			{
-				//hata mesajı
-			}
-		}
-	}
+        public void TInsert(Article entity)
+        {
+            _articleDal.Insert(entity);
+        }
+
+        public void TUpdate(Article entity)
+        {
+            if (entity.Description != "" && entity.Title.Length >= 5 && entity.Title.Length <= 100)
+            {
+                _articleDal.Update(entity);
+            }
+            else
+            {
+                //hata mesajı
+            }
+        }
+    }
 }
