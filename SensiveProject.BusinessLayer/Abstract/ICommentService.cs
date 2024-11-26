@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace SensiveProject.BusinessLayer.Abstract
 {
-	public interface ICommentService:IGenericService<Comment>
-	{
-	}
+    public interface ICommentService : IGenericService<Comment>
+    {
+        public List<Comment> TGetCommentsByArticleId(int id);
+
+    }
 }
